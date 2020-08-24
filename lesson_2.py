@@ -3,7 +3,7 @@
 # st = 'as 23 fdfdg544' введена строка
 # 2,3,5,4,4        #вивело в консолі.
 
-# a = input()
+# a = input(">")
 # num = ''
 # for char in a:
 #     if char.isdigit():
@@ -18,7 +18,7 @@
 #   st = 'as 23 fdfdg544 34' #введена строка
 #   23, 544, 34              #вивело в консолі
 
-# s = input()
+# s = input('>')
 # l = len(s)
 # integ = []
 # i = 0
