@@ -89,9 +89,22 @@
 # ['LT', 'LT', 'LT', 'LT', 'GT', 'GT', 'GT', 'GT']
 
 # numbers = [1, 2, 3, 4, 5, 6, 7, 8]
-# n=[i  if i < 5 else 'GT' for i in numbers ]
+#
+# n=['LT' if i < 5  else 'GT' for i in numbers ]
 # print(n)
+
 # ТУТ З 'LT' не зовсім виходить ?????????????????????????????????
+
+# n=[]
+# for i in numbers:
+#     if i<5:
+#         n.append('LT')
+#     else:
+#         n.append('GT')
+# print(n)
+
+
+
 
 
 
@@ -102,85 +115,88 @@
 # записать в лист тюплы (x,y) если x+y == 0
 # пример:
 # [(1, -1), (2, -2), (5, -5)]
-#  Потрібна допомога .Не знаю як вирішити ???????????????????????????????????????????
 
+# n=[(x, y) for x in list1 for y in list2 if x + y == 0]
+# print(n)
 
 # практична
-# list=[{"data":"30.07.2020","name":"car","price":3000},
-#       {"data":"02.08.2020","name":"tv","price":800},
-#       {"data":"15.08.2020","name":"phone","price":500},
-#       {"data":"20.08.2020","name":"radio","price":200},
-#       {"data":"22.08.2020","name":"shoes","price":50}]
-#
-# while True:
-#     print('МЕНЮ:')
-#     print('1. список всіх записів')
-#     print('2. загальна вартість всіх покупок')
-#     print('3. найдорожча покупка')
-#     print('4. пошук по назві товару')
-#     print('5. пошук по днях')
-#     print('6. вихід')
-#
-#     choice = input('Зробіть свій вибір: ')
-#     if choice not in '123456':
-#         print("not such number in list")
-#         continue
-#
-#     elif choice == '1':
-#         n=0
-#         for dict in list:
-#             n+=1
-#             print('номер п/п:',n, dict)
-#             # for k, v in dict.items():
-#             #     print(k, v)
-#
-#
-#     elif choice == '2':
-#         sum = 0
-#         for dict in list:
-#             for k, v in dict.items():
-#                 if k == "price":
-#                     sum += v
-#         print('загальна вартість покупок: ',int(sum))
-#
-#
-#     elif choice == '3':
-#         list1 = []
-#         for dict in list:
-#             for k,v in dict.items():
-#                 if k=="price":
-#                     list1.append(v)
-#                     m=max(list1)
-#                     if v==m:
-#                         print('найдорожча покупка:',dict)
-#         # print("найдорожча покупка:",m)
-#
-#
-#     elif choice == '4':
-#         n = input('enter name of the goods :')
-#         list1 = []
-#         for dict in list:
-#             for k, v in dict.items():
-#                 if  n == v:
-#                     list1.append(dict)
-#                     print('за вашим запитом знайдено:',list1)
-#                 # else :
-#                 #     print('за вашим запитом нічого не знайдено')
-#                 # НЕ РОЗУМІЮ В ЯКОМУ МІСЦІ ПОСТАВИТИ ELSE ЩОБ ТІЛЬКИ ОДИН РАЗ БУВ КОМЕНТАР
-#
-#     elif choice == '5':
-#         date = input('enter date :')
-#         # НЕЗНАЮ В ЯКОМУ ФОРМАТІ КРАЩЕ ЗАПИСУВАТИ ДАТУ ?
-#         list1 = []
-#         for dict in list:
-#             for k, v in dict.items():
-#                 if date == v:
-#                     list1.append(dict)
-#                     print('за вашим запитом знайдено:', list1)
-#                 # else :
-#                 #     print('ВВЕДІТЬ ІНШУ ДАТУ')
-#
-#     elif choice == '6':
-#         break
+list=[{"data":"30.07.2020","name":"car","price":3000},
+      {"data":"02.08.2020","name":"tv","price":800},
+      {"data":"15.08.2020","name":"phone","price":500},
+      {"data":"20.08.2020","name":"radio","price":200},
+      {"data":"22.08.2020","name":"shoes","price":50}]
+
+while True:
+    print('МЕНЮ:')
+    print('1. список всіх записів')
+    print('2. загальна вартість всіх покупок')
+    print('3. найдорожча покупка')
+    print('4. пошук по назві товару')
+    print('5. пошук по днях')
+    print('6. вихід')
+
+    choice = input('Зробіть свій вибір: ')
+    if choice not in '123456':
+        print("not such number in list")
+        continue
+
+    elif choice == '1':
+        n=0
+        for dict in list:
+            n+=1
+            print('номер п/п:',n, dict)
+            # for k, v in dict.items():
+            #     print(k, v)
+
+
+    elif choice == '2':
+        sum = 0
+        for dict in list:
+            for k, v in dict.items():
+                if k == "price":
+                    sum += v
+        print('загальна вартість покупок: ',int(sum))
+
+
+    elif choice == '3':
+        list1 = []
+        for dict in list:
+            for k,v in dict.items():
+                if k=="price":
+                    list1.append(v)
+                    m=max(list1)
+                    if v==m:
+                        print('найдорожча покупка:',dict)
+        # print("найдорожча покупка:",m)
+
+
+    elif choice == '4':
+        n = input('enter name of the goods :')
+        list1 = []
+        for dict in list:
+            for k, v in dict.items():
+                if  n == v:
+                    list1.append(dict)
+        if list1:
+                    print('за вашим запитом знайдено:',list1)
+        else :
+            print('за вашим запитом нічого не знайдено')
+                # НЕ РОЗУМІЮ В ЯКОМУ МІСЦІ ПОСТАВИТИ ELSE ЩОБ ТІЛЬКИ ОДИН РАЗ БУВ КОМЕНТАР
+
+    elif choice == '5':
+        date = input('enter date :')
+        # НЕЗНАЮ В ЯКОМУ ФОРМАТІ КРАЩЕ ЗАПИСУВАТИ ДАТУ ?
+        list1 = []
+        for dict in list:
+            for k, v in dict.items():
+                if date == v:
+                    list1.append(dict)
+        if list1:
+              print('за вашим запитом знайдено:', list1)
+        else :
+              print('ВВЕДІТЬ ІНШУ ДАТУ')
+
+    elif choice == '6':
+        break
 
 
