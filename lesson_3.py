@@ -18,6 +18,14 @@
 # пример:
 "python the best of the best programming language, because is python"
 
+# st=input('enter string: ').split()
+# count=0
+# for i in st:
+#     if len(i)>count:
+#         count=len(i)
+#         word=i
+# print('the longest word is: ',word)
+
 # s=input(">")
 # word=''
 # maxLen=0
@@ -123,6 +131,10 @@
 # -функція:
 # def pr(): return 'Hello_boss_!!!'
 # написати декоратор який замінює нижні підчеркування на пробіли і повертає це значення
+# ????????????????
+
+
+
 # ***********************************************************************************************
 # практична 3
 # Імітуємо роботу банкомату
