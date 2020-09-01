@@ -81,36 +81,39 @@
 # делам формат поединка, каждый из бойцов поочередно наносит друг другу удары забирая случайное число жизни у своего соперника
 # в конце выводится победитель
 
-# import random
-#
-# class Fighter:
-#     health=20
-#     def Hit(self):
-#         n = random.randint(0, 10)
-#         self.health-=n
-#
-#
-# Klichko=Fighter()
-# Lomachenko=Fighter()
-# i=1
-# while True:
-#     if Klichko.health <=0:
-#         print("Lomachenko wins !")
-#         break
-#     if Lomachenko.health <=0:
-#         print('Klichko wins !')
-#         break
-#
-#     print(f'Round number {i}'  )
-#     if i%2==0:
-#         print('Lomachenko strike !')
-#         Klichko.Hit()
-#         print(f'Klichko has {Klichko.health} health')
-#     else:
-#         print('Klichko strike !')
-#         Lomachenko.Hit()
-#         print(f'Lomachenko has {Lomachenko.health} health')
-#     print('*********************')
-#     i+=1
+import random
+
+class Fighter:
+    def __init__(self, name,health):
+        self.name = name
+        self.health=health
+
+    def Hit(self):
+        n = random.randint(0, 10)
+        self.health-=n
+
+
+fighter1=Fighter('Klichko',20)
+fighter2=Fighter('Lomachenko',20)
+i=1
+while True:
+    if fighter1.health <=0:
+        print(f"{fighter2.name} wins !")
+        break
+    if fighter2.health <=0:
+        print(f"{fighter1.name} wins !")
+        break
+
+    print(f'Round number {i}'  )
+    if i%2==0:
+        print(f'{fighter2.name} strike !')
+        fighter1.Hit()
+        print(f'{fighter1.name} has {fighter1.health} health')
+    else:
+        print(f'{fighter1.name} strike !')
+        fighter2.Hit()
+        print(f'{fighter2.name} has {fighter2.health} health')
+    print('*********************')
+    i+=1
 
 
