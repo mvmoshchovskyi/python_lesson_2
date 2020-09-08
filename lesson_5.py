@@ -1,3 +1,80 @@
+# Практична
+# 1) написати програму для запису відомостей про пасажирські перевезення
+# 2) перевезення відбувається трьома способами, літаком, машиною, поїздом,
+# 3) дані які треба буде зберігати:
+#   - вартість квитка(літак, поїзд)
+#   - кількість пасажирів(машина)
+#   - час в дорозі(всі)
+#   - час реєстрації(літак)
+#   - клас:перший,другий(літак)
+#   - вартість пального(машина)
+#   - км(машина)
+#   - місце: купе,св(поїзд)
+# 4) методи:
+#   - розрахунок вартості доїзду(машина)
+#   - загальний час перельоту(літак)
+#   - порівняти час в дорозі між двома будь якими транспортними засобами(двома об'єктами) - наприклад"літак на 5 годин швидше за поїзд"
+#   - вивести всі дані про перевезення(поїзд)
+
+from datetime import datetime
+class Register:
+
+    __time=''
+    __info={}
+    __count=0
+
+    def __init__(self):
+        Register.__count += 1
+        Register.__time+=datetime.now().strftime('%d-%m-%Y %H:%M:%S')
+        Register.__info[Register.__count,Register.__time] = {self.__class__.__name__: self.__dict__}
+
+    @classmethod
+    def get_info(cls):
+        return cls.__info
+
+
+class Plan(Register):
+
+    def __init__(self,travell_time,ticket_price,time_registry,class_services):
+        super().__init__()
+        self.travell_time=travell_time
+        self.ticket_price=ticket_price
+        self.time_registry=time_registry
+        self.class_services=class_services
+
+    def flight_time(self,time_registry,travell_time):
+      return time_registry+travell_time
+
+
+class Car(Register):
+
+    def __init__(self ,travell_time, number_pacengers, cost_fuel, distance):
+        super().__init__()
+        self.travell_time = travell_time
+        self.number_pacengers=number_pacengers
+        self.cost_fuel=cost_fuel
+        self.distance=distance
+
+    def cost_travell(self,cost_fuel,distance):
+        return cost_fuel*distance
+
+class Train(Register):
+
+    def __init__(self,travell_time,ticket_price,place):
+        super().__init__()
+        self.travell_time = travell_time
+        self.ticket_price = ticket_price
+        self.place=place
+
+
+plan=Plan(4,5,10,3)
+car=Car(5,2,0,6)
+train=Train(8,10,'first')
+print(Register.get_info())
+print(car.cost_travell(2, 5))
+print(plan.flight_time(2))
+
+# ДЗ
 #  Створити клас rectangle
 # 1) об'єкт приймає два параметри - дві сторони х у
 # 2) описати методи арифметичні
@@ -196,81 +273,4 @@
 # print(age1*age2)
 # print((age1,age2))
 
-# Практична
-# 1) написати програму для запису відомостей про пасажирські перевезення
-# 2) перевезення відбувається трьома способами, літаком, машиною, поїздом,
-# 3) дані які треба буде зберігати:
-#   - вартість квитка(літак, поїзд)
-#   - кількість пасажирів(машина)
-#   - час в дорозі(всі)
-#   - час реєстрації(літак)
-#   - клас:перший,другий(літак)
-#   - вартість пального(машина)
-#   - км(машина)
-#   - місце: купе,св(поїзд)
-# 4) методи:
-#   - розрахунок вартості доїзду(машина)
-#   - загальний час перельоту(літак)
-#   - порівняти час в дорозі між двома будь якими транспортними засобами(двома об'єктами) - наприклад"літак на 5 годин швидше за поїзд"
-#   - вивести всі дані про перевезення(поїзд)
-
-from datetime import datetime
-class Register:
-
-    __time=''
-    __info={}
-    __count=0
-
-
-    def __init__(self):
-        Register.__count += 1
-        Register.__time+=datetime.now().strftime('%d-%m-%Y %H:%M:%S')
-        Register.__info[Register.__count,Register.__time] = {self.__class__.__name__: self.__dict__}
-
-
-    @classmethod
-    def get_info(cls):
-        return cls.__info
-
-
-class Plan(Register):
-
-    def __init__(self,travell_time,ticket_price,time_registry,class_services):
-        super().__init__()
-        self.travell_time=travell_time
-        self.ticket_price=ticket_price
-        self.time_registry=time_registry
-        self.class_services=class_services
-
-    def flight_time(self,travell_time):
-      return travell_time
-
-
-class Car(Register):
-
-    def __init__(self ,travell_time, number_pacengers, cost_fuel, distance):
-        super().__init__()
-        self.travell_time = travell_time
-        self.number_pacengers=number_pacengers
-        self.cost_fuel=cost_fuel
-        self.distance=distance
-
-    def cost_travell(self,cost_fuel,distance):
-        return cost_fuel*distance
-
-class Train(Register):
-
-    def __init__(self,travell_time,ticket_price,place):
-        super().__init__()
-        self.travell_time = travell_time
-        self.ticket_price = ticket_price
-        self.place=place
-
-
-plan=Plan(4,5,10,3)
-car=Car(5,2,0,6)
-train=Train(8,10,'first')
-print(Register.get_info())
-print(car.cost_travell(2, 5))
-print(plan.flight_time(2))
 
