@@ -60,19 +60,26 @@ class Car(Register):
 
 class Train(Register):
 
+    __train_info = {}
+
     def __init__(self,travell_time,ticket_price,place):
         super().__init__()
         self.travell_time = travell_time
         self.ticket_price = ticket_price
         self.place=place
+        Train.__train_info= {self.__class__.__name__: self.__dict__}
 
+    @classmethod
+    def get_info(cls):
+        return cls.__train_info
 
 plan=Plan(4,5,10,3)
 car=Car(5,2,0,6)
 train=Train(8,10,'first')
 print(Register.get_info())
 print(car.cost_travell(2, 5))
-print(plan.flight_time(2))
+print(plan.flight_time(2,8))
+print(train.get_info())
 
 # ДЗ
 #  Створити клас rectangle
